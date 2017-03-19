@@ -10,6 +10,13 @@ if (args.length !== 2) {
 page.onError = function() {
 };
 
+page.onResourceRequested = function(requestData, networkRequest) {
+  var match = requestData.url.match(/.(png|jpg|jpeg|ttf|gif)$/g);
+  if (match) {
+    networkRequest.cancel();
+  }
+};
+
 function wait(test, cb) {
   var elapsed = 0;
   var ival;
