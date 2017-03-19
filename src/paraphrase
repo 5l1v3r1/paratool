@@ -1,0 +1,16 @@
+#!/bin/bash
+
+attempt() {
+  out=$(phantomjs /paratool/main.js "$1")
+  if [ $? -eq 0 ]; then
+    echo $out
+    exit
+  fi
+}
+
+# Three attempts incase of network issues.
+attempt "$1"
+attempt "$1"
+attempt "$1"
+echo 'failed to paraphrase' >&2
+exit 1
