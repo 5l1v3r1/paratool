@@ -10,9 +10,7 @@ RUN apt-get update && \
     libfreetype6 \
     libfreetype6-dev \
     libfontconfig1 \
-    libfontconfig1-dev \
-    nodejs \
-    npm && \
+    libfontconfig1-dev && \
   rm -rf /var/lib/apt/lists/*
 
 ENV PHANTOM_JS "phantomjs-2.1.1-linux-x86_64"
